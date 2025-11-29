@@ -1,0 +1,8 @@
+DELIMITER $$
+CREATE FUNCTION can_cancel(p_order_id INT)
+RETURNS BOOLEAN
+DETERMINISTIC
+BEGIN
+  RETURN (get_order_status(p_order_id) = 'PLACED');
+END$$
+DELIMITER ;
